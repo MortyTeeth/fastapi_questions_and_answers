@@ -24,13 +24,13 @@ class QuestionRepository:
             question_schemas = [Question.model_validate(question_model) for question_model in question_models]
             return question_schemas
 
-    @classmethod
-    async def find_by_id(id: int):
+    @staticmethod
+    async def find_by_id(id: int) -> object:
         async with new_session() as session:
             result = await session.get(QuestionsOrm, id)
             return result
 
-    @classmethod
+    @staticmethod
     async def delete_by_id(id: int):
         async with new_session() as session:
             question = await session.get(QuestionsOrm, id)
