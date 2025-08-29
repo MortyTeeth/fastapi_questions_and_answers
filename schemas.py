@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class QuestionAdd(BaseModel):
@@ -10,6 +10,7 @@ class QuestionAdd(BaseModel):
 
 class Question(QuestionAdd):
     id: int
+    model_config = ConfigDict(from_attributes=True)
 
 
 class QuestionId(BaseModel):
