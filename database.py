@@ -22,7 +22,7 @@ class QuestionsOrm(Model):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     text: Mapped[Optional[str]] = mapped_column(nullable=True)
-    created_at: Mapped[datetime] = mapped_column(server_default=func.now())
+    created_at: Mapped[datetime]
 
 
 async def create_tables():

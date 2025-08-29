@@ -15,8 +15,8 @@ router = APIRouter(
 async def add_question(
         question: Annotated[QuestionAdd, Depends()]
 ) -> QuestionId:
-    task_id = await QuestionRepository.add_one(question)
-    return {"ok": True, "task_id": task_id}
+    question_id = await QuestionRepository.add_one(question)
+    return {"ok": True, "question_id": question_id}
 
 
 @router.get("/")
