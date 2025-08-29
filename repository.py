@@ -23,3 +23,19 @@ class QuestionRepository:
             question_models = result.scalars().all()
             question_schemas = [Question.model_validate(question_model) for question_model in question_models]
             return question_schemas
+
+    @classmethod
+    async def find_by_id(id: int):
+        async with new_session() as session:
+            result = await session.get(QuestionsOrm, id)
+            return result
+
+    @classmethod
+    async def delete_by_id(id: int):
+        async with new_session() as session:
+            question = await session.get(QuestionsOrm, id)
+            if not question:
+                return False
+            await session.delete(question)
+            await session.commit()
+            return True
