@@ -1,3 +1,5 @@
 .venv
 questions_and_answers.db
 .idea
+.env
+app.log

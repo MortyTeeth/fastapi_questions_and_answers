@@ -1,0 +1,27 @@
+version: '3.2'
+
+
+services:
+  db:
+    ports:
+      - "5432:5432"
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: questions_and_answers
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
