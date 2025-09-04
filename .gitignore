@@ -1,4 +1,13 @@
-.venv
-questions_and_answers.db
-.idea
+.venv/
+env/
+venv/
+
+.env
+
 app.log
+
+docker-compose.override.yml
+*.env
+
+.idea/
+

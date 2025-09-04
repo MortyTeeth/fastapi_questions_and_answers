@@ -1,6 +1,3 @@
-version: '3.2'
-
-
 services:
   db:
     ports:
@@ -8,8 +5,8 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: This1is2just3a4test!
       POSTGRES_DB: questions_and_answers
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -22,6 +19,8 @@ services:
       - 8000:8000
     depends_on:
       - db
+    env_file:
+      - .env
 
 volumes:
   pgdata:
