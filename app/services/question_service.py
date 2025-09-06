@@ -1,7 +1,6 @@
 from app.repositories.question_repository import QuestionRepository
-from app.routers.model import Question, QuestionAddRequest, QuestionWithAnswers
-from app.repositories.model.question import QuestionsOrm
-from typing import List, Optional
+from app.routers.model import Question, QuestionAddRequest
+from typing import List
 from app.mappers.question_mapper import QuestionMapper
 from app.services.model.question import QuestionDomain
 from fastapi import HTTPException

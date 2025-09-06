@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, Depends
 from typing import List
 from app.routers.model import QuestionAddRequest, Question
 from app.repositories.question_repository import QuestionRepository

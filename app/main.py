@@ -4,7 +4,7 @@ import fastapi_problem_details as pd
 from app.config.database import create_tables, delete_tables
 from app.routers.question_router import router as question_router
 from app.routers.answer_router import router as answer_router
-import os
+
 
 from app.config.logging_config import logger
 

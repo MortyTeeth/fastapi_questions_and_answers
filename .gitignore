@@ -1,11 +1,8 @@
 .venv
 
-.env
-
 app.log
 
 docker-compose.override.yml
-*.env
 
 .idea/
 
