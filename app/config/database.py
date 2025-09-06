@@ -5,14 +5,12 @@ from sqlalchemy.orm import DeclarativeBase
 
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL")
-if DATABASE_URL is None:
-    raise RuntimeError("DATABASE_URL is not set in environment variables")
-
-engine = create_async_engine(
-    DATABASE_URL,
-    echo=True,
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "postgresql+asyncpg://postgres:This1is2just3a4test!@db:5432/questions_and_answers"
 )
+
+engine = create_async_engine(DATABASE_URL, echo=True)
 
 async_session = async_sessionmaker(engine, expire_on_commit=False)
 
